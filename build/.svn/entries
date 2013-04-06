@@ -1,0 +1,70 @@
+8
+
+dir
+784
+svn://ox.snu.ac.kr/arch_org/trunk/build
+svn://ox.snu.ac.kr
+
+
+
+2007-03-17T00:22:47.000000Z
+438
+dolicoli
+has-props
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+0c12b784-bfda-4e7c-8171-7d94c6508ef0
+
+.cvsignore
+file
+
+
+
+
+2009-02-06T09:30:14.000000Z
+88e32efdc65e5ed4a4e14400c84ed605
+2007-02-26T06:53:44.000000Z
+418
+dolicoli
+
+build-lib
+dir
+
+build-prepare
+dir
+
+build.properties
+file
+
+
+
+
+2009-02-06T09:30:13.000000Z
+8557ac3f88b409162a0fa305db558ea5
+2007-03-17T00:22:47.000000Z
+438
+dolicoli
+
+build.xml
+file
+
+
+
+
+2009-02-06T09:30:14.000000Z
+eebbe7e99133eb5640d408eb18ea430b
+2007-03-17T00:22:47.000000Z
+438
+dolicoli
+

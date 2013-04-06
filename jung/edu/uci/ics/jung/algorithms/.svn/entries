@@ -1,0 +1,100 @@
+8
+
+dir
+784
+svn://ox.snu.ac.kr/arch_org/trunk/jung/edu/uci/ics/jung/algorithms
+svn://ox.snu.ac.kr
+
+
+
+2007-03-16T07:50:36.000000Z
+437
+dolicoli
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+0c12b784-bfda-4e7c-8171-7d94c6508ef0
+
+GraphMatrixOperations.java
+file
+
+
+
+
+2009-02-06T09:31:05.000000Z
+ad2143a396d27e513f2649ca92f47ead
+2007-03-16T07:50:36.000000Z
+437
+dolicoli
+
+IterativeProcess.java
+file
+
+
+
+
+2009-02-06T09:31:05.000000Z
+599be87d00cf72e425ff5e097c4245b2
+2007-03-16T07:50:36.000000Z
+437
+dolicoli
+
+MatrixElementOperations.java
+file
+
+
+
+
+2009-02-06T09:31:04.000000Z
+17a480319b924a8a8cc86de3f04ede84
+2007-03-16T07:50:36.000000Z
+437
+dolicoli
+
+RealMatrixElementOperations.java
+file
+
+
+
+
+2009-02-06T09:31:04.000000Z
+1e335f8ec9e0cca006b2e9025f9649bd
+2007-03-16T07:50:36.000000Z
+437
+dolicoli
+
+blockmodel
+dir
+
+cluster
+dir
+
+connectivity
+dir
+
+flows
+dir
+
+importance
+dir
+
+metrics
+dir
+
+shortestpath
+dir
+
+transformation
+dir
+

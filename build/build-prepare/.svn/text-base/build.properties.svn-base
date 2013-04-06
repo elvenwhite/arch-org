@@ -1,0 +1,4 @@
+lib=./lib
+properties=./properties
+
+runner.class=framework.DefaultPropertiesApplication

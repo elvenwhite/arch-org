@@ -1,0 +1,59 @@
+#+----------------------------------------------------------------+
+#| Application                                                    |
+#|  - analyzer.class: An analyzer class's name to use             |
+#|  - visualizer.class: A visualizer class's name to use          |
+#+----------------------------------------------------------------+
+analyzer.class=
+visualizer.class=
+#/****************************************************************
+# * Some Important Combinations
+# *  - CVS Log -> CDT (Author - Organization)
+# *    A: cvx.CVSParserAnalysis,cvx.AuthorOrganizationAnalysis
+# *    V: cvx.CdtFileWriteVisualization
+# *  - CVS Log -> CDT (Module - Organization)
+# *    A: cvx.CVSParserAnalysis,cvx.ModuleOrganizationAnalysis
+# *    V: cvx.CdtFileWriteVisualization
+# *  - CVS Log -> Graph File (Author - Organization)
+# *    A: cvx.CVSParserAnalysis,cvx.AuthorOrganizationAnalysis,graph.GraphConverterAnalysis,graph.ApplyLayoutAnalysis
+# *    V: graph.GraphFileWriteVisualization
+# *  - CVS Log -> Graph Frame (Author - Organization)
+# *    A: cvx.CVSParserAnalysis,cvx.AuthorOrganizationAnalysis,graph.GraphConverterAnalysis,graph.ApplyLayoutAnalysis
+# *    V: graph.GraphFrameVisualization
+# *  - CDT -> Graph File (Author - Organization)
+# *    A: cvx.CdtFileReadAnalysis,cvx.AuthorOrganizationAnalysis
+# *    V: graph.GraphFileWriteVisualization
+# *  - CDT -> Graph File (Module - Organization)
+# *    A: cvx.CdtFileReadAnalysis,cvx.ModuleOrganizationAnalysis,graph.GraphConverterAnalysis
+# *    V: graph.GraphFileWriteVisualization
+# *  - CDT -> Graph Frame (Author - Organization)
+# *    A: cvx.CdtFileReadAnalysis,cvx.AuthorOrganizationAnalysis,graph.GraphConverterAnalysis,graph.ApplyLayoutAnalysis
+# *    V: graph.GraphFrameVisualization
+# *  - Graph File -> Graph Frame
+# *    A: graph.GraphFileReadAnalysis
+# *    V: graph.GraphFrameVisualization
+#****************************************************************/
+
+#+----------------------------------------------------------------+
+#| CVS Log Parser                                                 |
+#|  - cvs.target.module: Target Module                            |
+#|    [junit|jhotdraw|eclipse-jdt]                                |
+#|  - cvs.input.file: Input File Path                             |
+#+----------------------------------------------------------------+
+cvs.target.module=
+cvs.input.file=
+
+#+----------------------------------------------------------------+
+#| CDT                                                            |
+#|  - cdt.input.file: Input File Path                             |
+#|  - cdt.output.file: Output File Path                           |
+#+----------------------------------------------------------------+
+cdt.input.file=
+cdt.output.file=
+
+#+----------------------------------------------------------------+
+#| Graph File                                                     |
+#|  - graph.input.file: Input File Path                           |
+#|  - graph.output.file: Output File Path                         |
+#+----------------------------------------------------------------+
+graph.input.file=
+graph.output.file=

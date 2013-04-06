@@ -1,0 +1,54 @@
+8
+
+dir
+784
+svn://ox.snu.ac.kr/arch_org/trunk/build/build-lib
+svn://ox.snu.ac.kr
+
+
+
+2007-03-16T07:03:15.000000Z
+434
+dolicoli
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+0c12b784-bfda-4e7c-8171-7d94c6508ef0
+
+ant.jar
+file
+
+
+
+
+2009-02-06T09:30:13.000000Z
+c5c499f1eef9367c657e89bb881c69aa
+2007-03-16T07:03:15.000000Z
+434
+dolicoli
+has-props
+
+selab-utils.jar
+file
+
+
+
+
+2009-02-06T09:30:12.000000Z
+c003c88b2409db91e862468e1540ec42
+2007-03-16T07:03:15.000000Z
+434
+dolicoli
+has-props
+

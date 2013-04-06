@@ -1,0 +1,26 @@
+graph G {
+	graph [bgcolor="lightgrey"]
+	node [
+		fontname="BabelSans"
+		label="\N"
+		shape="circle"
+		fixedsize="true"
+		style="filled"
+		fillcolor="#aaccffbf"
+		color="steelblue2"
+	]
+	edge [ style="invis" ]
+
+	egamma [ width="1.2844132168704943" height="1.2844132168704943" ]
+	emeade [ width="0.6404103755364532" height="0.6404103755364532" ]
+	kbeck [ width="1.179217210477213" height="1.179217210477213" ]
+	vbossica [ width="0.25" height="0.25" ]
+
+	emeade -- kbeck [ len="1.9269168777341077" ]
+	emeade -- vbossica [ len="7.303284777502258" ]
+	egamma -- vbossica [ len="4.315091261317858" ]
+	egamma -- emeade [ len="1.7282648063373012" ]
+	kbeck -- vbossica [ len="4.506374016806464" ]
+	egamma -- kbeck [ len="1.0" ]
+}
+

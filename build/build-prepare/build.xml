@@ -1,0 +1,22 @@
+<project name="Arch Org Runner" default="run">
+    <property file="build.properties"/>
+
+    <path id="classpath">
+        <fileset dir="${lib}">
+            <include name="*.jar"/>
+        </fileset>
+        <pathelement location="${properties}/"/>
+    </path>
+
+	<target name="run">
+		<echo message="#############################################"/>
+		<echo message="# Running Application                       #"/>
+		<echo message="#############################################"/>
+		
+		<java classname="${runner.class}"
+			  classpathref="classpath"
+			  fork="true">
+		</java>
+	</target>
+
+</project>

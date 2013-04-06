@@ -1,0 +1,195 @@
+<project name="Arch Org" default="build">
+    <property file="build.properties"/>
+
+    <path id="ant-classpath">
+        <fileset dir="build-lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <path id="classpath">
+        <fileset dir="${output.lib}">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <taskdef name="rel2abs"
+        classname="kr.ac.snu.selab.utils.ant.RelativeToAbsoluteTask"
+    	classpathref="ant-classpath">
+    </taskdef>
+	
+	<target name="prepare-dirs">
+		<echo message="#############################################"/>
+		<echo message="# Preparing Output Directory                #"/>
+		<echo message="#############################################"/>
+		<mkdir dir="${output.lib}"/>
+		<mkdir dir="${output.properties}"/>
+		<mkdir dir="${output.resources}"/>
+		<mkdir dir="${output.bin}"/>
+		<mkdir dir="${output.src}"/>
+		<mkdir dir="${output.src}/src"/>
+		<mkdir dir="${output.src}/jung"/>
+		<mkdir dir="${output.javadoc}"/>
+	</target>
+	
+	<target name="cleanup">
+		<echo message="#############################################"/>
+		<echo message="# Cleaning Up Output Directory              #"/>
+		<echo message="#############################################"/>
+		<delete quiet="true" dir="${output.root}"/>
+	</target>
+	
+	<target name="prepare" depends="cleanup, prepare-dirs">
+		<ant target="prepare-dirs"/>
+		<ant target="copy-build-files"/>
+		<ant target="copy-properties"/>
+		<ant target="copy-libs"/>
+	</target>
+	
+	<target name="copy-properties">
+		<echo message="#############################################"/>
+		<echo message="# Copying Properties File                   #"/>
+		<echo message="#############################################"/>
+		<copy todir="${output.properties}">
+			<fileset dir="build-prepare">
+				<include name="runner.properties" />
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="copy-build-files">
+		<echo message="#############################################"/>
+		<echo message="# Copying Runner Build File                 #"/>
+		<echo message="#############################################"/>
+		<copy todir="${output.root}">
+			<fileset dir="build-prepare">
+				<include name="build.xml" />
+				<include name="build.properties" />
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="copy-libs">
+		<echo message="#############################################"/>
+		<echo message="# Copying Required Library File             #"/>
+		<echo message="#############################################"/>
+		<copy todir="${output.lib}">
+			<fileset dir="${src.lib}">
+				<include name="**/*.jar" />
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="copy-src">
+		<echo message="#############################################"/>
+		<echo message="# Copying Source File                       #"/>
+		<echo message="#############################################"/>
+		<copy todir="${output.src}/src">
+			<fileset dir="${src.src}">
+				<include name="**/*" />
+			 	<exclude name="**/resources/*"/>
+			 	<exclude name="**/resources"/>
+			</fileset>
+		</copy>
+		<copy todir="${output.src}/jung">
+			<fileset dir="${src.jung}">
+				<include name="**/*" />
+			</fileset>
+		</copy>
+		<echo message="#############################################"/>
+		<echo message="# Archiving Source Files                    #"/>
+		<echo message="#############################################"/>
+		<jar destfile="${output.src}/${src.name}">
+			 <fileset dir="${output.src}">
+				<include name="**/*"/>
+			 </fileset>
+		</jar>
+	</target>
+	
+	<target name="javadoc" depends="jar">
+		<echo message="#############################################"/>
+		<echo message="# Generating Javadoc Files                  #"/>
+		<echo message="#############################################"/>
+		<javadoc access="public" 
+			     author="true" 
+			     classpathref="classpath"
+			     destdir="${output.javadoc}" 
+			     nodeprecated="false" 
+			     nodeprecatedlist="false" 
+			     noindex="false" 
+				 nonavbar="false" notree="false" 
+				 source="1.5" 
+				 splitindex="true" use="true" version="true">
+			<link href="http://java.sun.com/j2se/1.5.0/docs/api/" />
+			<fileset dir="${src.src}">
+				<include name="**/*.java"/>
+			</fileset>
+		</javadoc>
+		<echo message="#############################################"/>
+		<echo message="# Archiving Javadoc Files                   #"/>
+		<echo message="#############################################"/>
+		<zip destfile="${output.javadoc}/${javadoc.name}"
+			 basedir="${output.javadoc}" />
+	</target>
+	
+	<target name="bin-zip">
+		<echo message="#############################################"/>
+		<echo message="# Archiving Binary Files (Zip)              #"/>
+		<echo message="#############################################"/>
+		<delete quiet="true" file="${output.bin}/${bin.zip.name}"/>
+		<zip destfile="${output.bin}/${bin.zip.name}">
+			<fileset dir="${output.root}">
+				<include name="lib/**"/>
+				<include name="properties/**"/>
+				<include name="resources/**"/>
+				<include name="build.xml"/>
+				<include name="build.properties"/>
+			</fileset>
+		</zip>
+	</target>
+	
+	<target name="bin-tar">
+		<echo message="#############################################"/>
+		<echo message="# Archiving Binary Files (Tar Gzip)         #"/>
+		<echo message="#############################################"/>
+		<delete quiet="true" file="${output.bin}/${bin.tar.name}"/>
+		<tar destfile="${output.bin}/${bin.tar.name}"
+			 compression="gzip">
+			<tarfileset dir="${output.root}">
+				<include name="lib/**"/>
+				<include name="properties/**"/>
+				<include name="resources/**"/>
+				<include name="build.xml"/>
+				<include name="build.properties"/>
+			</tarfileset>
+		</tar>
+	</target>
+
+	<target name="bin" depends="jar">
+		<ant target="bin-zip"/>
+		<ant target="bin-tar"/>
+	</target>
+		
+	<target name="jar">
+		<echo message="#############################################"/>
+		<echo message="# Archiving Library File                    #"/>
+		<echo message="#############################################"/>
+		<jar destfile="${output.lib}/${lib.jar}">
+			 <fileset dir="${src.bin}">
+				<include name="**"/>
+			 	<exclude name="**/resources/*"/>
+			 	<exclude name="**/resources"/>
+			 </fileset>
+		</jar>
+	</target>
+	
+	<target name="build">
+		<ant target="prepare"/>
+		<ant target="jar"/>
+		<ant target="javadoc"/>
+		<ant target="copy-src"/>
+		<ant target="bin"/>
+	</target>
+
+</project>
+	

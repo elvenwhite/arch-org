@@ -1,0 +1,61 @@
+graph G {
+	graph [truecolor bgcolor="lightgrey"]
+	node [
+		fontname="BabelSans"
+		label="\N"
+		shape="circle"
+		fixedsize="true"
+		style="filled"
+		fillcolor="#aaccffbf"
+		color="steelblue2"
+	]
+	edge [ style="invis" ]
+
+	mtnygard [ width="0.539663461105395" height="0.539663461105395" ]
+	pleumann [ width="0.4051641491731906" height="0.4051641491731906" ]
+	cfm1 [ width="0.4481974906302493" height="0.4481974906302493" ]
+	birdscurrybeer [ width="0.25" height="0.25" ]
+	ricardo_padilha [ width="0.8010553591646304" height="0.8010553591646304" ]
+	mrfloppy [ width="1.8154042811595998" height="1.8154042811595998" ]
+	pmorch [ width="0.4988155787422199" height="0.4988155787422199" ]
+	jeckel [ width="1.119485630137242" height="1.119485630137242" ]
+	dnoyeb [ width="1.277786688422953" height="1.277786688422953" ]
+
+	mtnygard -- ricardo_padilha [ len="5.5234738333019315" ]
+	mtnygard -- mrfloppy [ len="2.4029112263208527" ]
+	birdscurrybeer -- pmorch [ len="17.72185597074061" ]
+	pleumann -- jeckel [ len="4.508393952826862" ]
+	pmorch -- mrfloppy [ len="2.52152169436304" ]
+	ricardo_padilha -- dnoyeb [ len="2.3094263619400692" ]
+	mtnygard -- pmorch [ len="8.130181828858914" ]
+	ricardo_padilha -- mrfloppy [ len="1.6349349922367624" ]
+	cfm1 -- birdscurrybeer [ len="31.771565501586565" ]
+	cfm1 -- ricardo_padilha [ len="6.511765414910357" ]
+	mtnygard -- birdscurrybeer [ len="16.434854433333015" ]
+	pmorch -- jeckel [ len="4.049088272301523" ]
+	ricardo_padilha -- jeckel [ len="2.633565509040829" ]
+	cfm1 -- pmorch [ len="10.352943109333575" ]
+	mrfloppy -- jeckel [ len="1.1253255968528046" ]
+	jeckel -- dnoyeb [ len="1.566901113041374" ]
+	birdscurrybeer -- dnoyeb [ len="7.410979701438236" ]
+	birdscurrybeer -- ricardo_padilha [ len="12.745968070733777" ]
+	birdscurrybeer -- mrfloppy [ len="5.5629524091648745" ]
+	pleumann -- birdscurrybeer [ len="22.850843619824637" ]
+	cfm1 -- pleumann [ len="10.754199714207427" ]
+	pleumann -- ricardo_padilha [ len="6.624982438325377" ]
+	mtnygard -- cfm1 [ len="9.94640739251499" ]
+	mtnygard -- jeckel [ len="3.936070573903304" ]
+	mtnygard -- dnoyeb [ len="3.299750666197514" ]
+	mrfloppy -- dnoyeb [ len="1.0" ]
+	pleumann -- pmorch [ len="9.767143350151466" ]
+	birdscurrybeer -- jeckel [ len="9.655079492045168" ]
+	cfm1 -- dnoyeb [ len="3.8002591025773045" ]
+	pleumann -- dnoyeb [ len="3.8527394659107665" ]
+	pmorch -- dnoyeb [ len="3.4908982959017467" ]
+	mtnygard -- pleumann [ len="9.397454173614594" ]
+	cfm1 -- mrfloppy [ len="2.7989729632777998" ]
+	cfm1 -- jeckel [ len="4.226701877383713" ]
+	ricardo_padilha -- pmorch [ len="5.751402149748301" ]
+	pleumann -- mrfloppy [ len="2.873021494222125" ]
+}
+
