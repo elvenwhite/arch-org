@@ -132,6 +132,8 @@ public abstract class CVSLogParser {
 					hh = Integer.valueOf(info.split(DATE_SEPARATOR)[3]);
 					mm = Integer.valueOf(info.split(DATE_SEPARATOR)[4]);
 					ss = Integer.valueOf(info.split(DATE_SEPARATOR)[5]);
+//					System.out.println(info);
+
 				}
 				else if( tag.equals(AUTHOR) ) {
 					author = info;

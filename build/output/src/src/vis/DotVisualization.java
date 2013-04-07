@@ -112,7 +112,7 @@ public abstract class DotVisualization extends GraphVisualization {
 		else { /* impossible */
 		}
 		buffer.append("G {" + NEW_LINE);
-		buffer.append(TAB + "graph [truecolor bgcolor=" + quote("lightgrey")
+		buffer.append(TAB + "graph [ bgcolor=" + quote("lightgrey")
 				+ "]" + NEW_LINE);
 		buffer.append(TAB + "node [" + NEW_LINE);
 		buffer.append(TAB + TAB + "fontname=" + quote(FONT) + NEW_LINE);

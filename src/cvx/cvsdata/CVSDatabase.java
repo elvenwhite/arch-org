@@ -2,6 +2,7 @@ package cvx.cvsdata;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 
 import util.ImmutableCollection;
@@ -13,6 +14,7 @@ import util.SortedSetMap;
  */
 public class CVSDatabase {
 	
+	private static final double MAX_DISTANCE = 1000000;
 	private static CVSDatabase instance = new CVSDatabase();
 	
 	public static CVSDatabase instance() { 
@@ -105,4 +107,64 @@ public class CVSDatabase {
 	private static String getAuthorModuleKey(CVSAuthor author, CVSModule module) {
 		return author.toString()+module.toString();
 	}
+
+
+
+	public double calculateDistance(CVSAuthor a1, CVSAuthor a2, CVSModule m) {
+		ImmutableCollection<CVSRevision> rev1 = getRevisionsByAuthorAndModule(a1,m);
+		ImmutableCollection<CVSRevision> rev2 = getRevisionsByAuthorAndModule(a2,m);
+		
+		
+		if (rev1.size()==0 ||rev2.size()==0) return MAX_DISTANCE;
+		
+		long[] date1 = new long[rev1.size()];
+		long[] date2 = new long[rev2.size()];
+		
+		Iterator<CVSRevision> itr1 = rev1.iterator();
+		Iterator<CVSRevision> itr2 = rev2.iterator();
+
+		long MIN_DATE=250000; //should be found in context of project era
+		int i = 0;
+		for (i=0;i<rev1.size();i++) {
+			CVSRevision rev = itr1.next();
+			date1[i]= rev.getDateInMillis()/3600000 - MIN_DATE;
+//			System.out.println(i+"/"+date1[i]);
+		}
+		for (i=0;i<rev2.size();i++) {
+			CVSRevision rev = itr2.next();
+			date2[i]= rev.getDateInMillis()/3600000-MIN_DATE;
+//			System.out.println(i+"\\"+date2[i]);
+		}
+		
+        double sum= 0.0;
+        int cap = date1.length>=date2.length?date1.length:date2.length;
+        int j=0;
+        i=0;
+        
+        
+        
+        if (date1.length>=date2.length) {
+
+	        for(i=0;i<cap;i++) {
+	     
+		           sum = sum + Math.pow((date1[i]-date2[j]),2.0);
+		           j++;
+		         if (j>=date2.length) j=0;
+	        }
+        } else if (date1.length<date2.length) {
+
+        	j=0;
+	        for(i=0;i<cap;i++) {
+
+		           sum = sum + Math.pow((date1[j]-date2[i]),2.0);
+		           j++;
+		         if (j>=date1.length) j=0;
+	        } 
+        }
+        System.out.println(Math.sqrt(sum));
+        
+        return Math.sqrt(sum)/10000;		
+	}
+
+
 }

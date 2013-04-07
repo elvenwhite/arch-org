@@ -18,7 +18,6 @@ public class AuthorOrganizationAnalysis
 extends CVSAnalysis {
 
 	public void analyze(CVSDatabase db, Pipe pipe) {
-		
 		ImmutableCollection<CVSAuthor> authors = db.getAuthors();
 
 		int numAuthors = authors.size();
@@ -41,6 +40,8 @@ extends CVSAnalysis {
 		}
 	    
 		ImmutableCollection<CVSModule> modules = db.getModules();
+		double distance_weight = 1;
+		
 		for(CVSModule m: modules) {
 			
 			Set<CVSAuthor> checked = new HashSet<CVSAuthor>();
@@ -57,7 +58,11 @@ extends CVSAnalysis {
 					if( coModificationFactor[a1.getId()][a2.getId()] == -1 )
 						coModificationFactor[a1.getId()][a2.getId()] = 0;
 					
-					coModificationFactor[a1.getId()][a2.getId()] += r1*r2;
+					
+					double distance = db.calculateDistance(a1,a2,m);
+					coModificationFactor[a1.getId()][a2.getId()] += r1*r2 / distance;
+					
+//					System.out.println(distance); 
 					
 					double maxCandidate = coModificationFactor[a1.getId()][a2.getId()];
 					if( maxCandidate > coModificationFactorMax )
@@ -78,7 +83,7 @@ extends CVSAnalysis {
             node.setValue(Constants.KEY_NAME, author.getName());
 		}
 		
-		double edge_len_ratio = 0.3;
+		double edge_len_ratio = 0.35;
 		for(CVSAuthor a1: authors) {
 			for(CVSAuthor a2: authors) {
 				
