@@ -62,7 +62,7 @@ extends CVSAnalysis {
 					double distance = db.calculateDistance(a1,a2,m);
 					coModificationFactor[a1.getId()][a2.getId()] += r1*r2 / distance;
 					
-//					System.out.println(distance); 
+					if (r1*r2!=0) System.out.println(a1.getName()+":"+a2.getName()+"= "+"r1r2: "+ r1*r2 +", dist: " + distance + " , cf: "+r1*r2/distance); 
 					
 					double maxCandidate = coModificationFactor[a1.getId()][a2.getId()];
 					if( maxCandidate > coModificationFactorMax )
@@ -99,7 +99,7 @@ extends CVSAnalysis {
 				Node dstn = graph.getNode(a2.toString());
 				Edge edge = graph.addEdge(src, dstn);
 				edge.setData(val);
-                System.out.println("val: " + val);
+//                System.out.println("val: " + val);
 			}
 		}
 		

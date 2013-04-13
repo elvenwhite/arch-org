@@ -67,6 +67,11 @@ public class CVSDatabase {
 		
 		System.out.println( getFiles().size()+" CVS files loaded." );
 		System.out.println( getAuthors().size()+" authors have contributed." );
+		
+		System.out.println( getRevisionsByAuthor(CVSAuthor.getInstance("teicher")).size() +"teicher");
+		System.out.println( getRevisionsByAuthor(CVSAuthor.getInstance("akiezun")).size() +"akiezun");
+
+
 	}
 	
 	public static void clearAll() {
@@ -161,7 +166,7 @@ public class CVSDatabase {
 		         if (j>=date1.length) j=0;
 	        } 
         }
-        System.out.println(Math.sqrt(sum));
+//        System.out.println(Math.sqrt(sum));
         
         return Math.sqrt(sum)/10000;		
 	}

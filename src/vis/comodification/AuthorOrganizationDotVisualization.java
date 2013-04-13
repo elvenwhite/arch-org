@@ -30,7 +30,7 @@ public class AuthorOrganizationDotVisualization extends DotVisualization {
 			double coModificationFactor = (Double) edge.getData();
 			String[] propertiesVars = new String[] { "len" };
 			String[] propertiesVals = new String[] { "" + coModificationFactor };
-            System.out.println("com: " + coModificationFactor);
+//            System.out.println("com: " + coModificationFactor);
 			addEdge(src.getName(), dstn.getName(), propertiesVars,
 					propertiesVals);
 		}

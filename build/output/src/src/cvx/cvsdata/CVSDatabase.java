@@ -65,6 +65,7 @@ public class CVSDatabase {
 		
 		System.out.println( getFiles().size()+" CVS files loaded." );
 		System.out.println( getAuthors().size()+" authors have contributed." );
+		
 	}
 	
 	public static void clearAll() {
